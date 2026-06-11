@@ -1,0 +1,12 @@
+{
+  "name": "glen",
+  "description": "Shared team memory for coding agents — automatic recall and capture on every turn via the glen CLI.",
+  "owner": { "name": "Glen", "url": "https://tryglen.com" },
+  "plugins": [
+    {
+      "name": "glen",
+      "source": "./plugins/glen",
+      "description": "Shared team memory for coding agents — automatic recall and capture on every turn via the glen CLI."
+    }
+  ]
+}
