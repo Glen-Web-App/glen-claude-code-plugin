@@ -19,6 +19,18 @@ When you submit a prompt in Claude Code, the glen plugin fires two hooks:
 Nothing is sent while incognito mode is on (`glen incognito on`). Glen never reads your
 filesystem directly — only what you send via prompts and assistant turns.
 
+## Skills
+
+The plugin ships three skills the agent invokes on demand:
+
+- **glen-search** — search the team's shared glen memory for a specific fact,
+  decision, or past discussion.
+- **glen-controls** — go off the record (incognito) or switch which
+  organization's memory is active, only when you explicitly ask.
+- **glen-setup** — set up, fix, or update glen on this machine. If glen is ever
+  broken (not connected, no org selected, hooks missing), just ask the agent to
+  "set up glen" and it repairs whatever `glen doctor` reports.
+
 ## Install
 
 **Preferred (one command):**
@@ -76,11 +88,13 @@ claude plugin update glen@glen
 ```
 
 The glen CLI itself checks for updates daily in the background and upgrades
-automatically when installed via npm global. To update manually:
+automatically when installed via npm global. To update everything manually:
 
 ```sh
 glen update
 ```
+
+`glen update` updates the CLI **and** any installed glen plugins in one go.
 
 ## Troubleshooting
 
@@ -96,6 +110,9 @@ glen status
 ```sh
 glen doctor
 ```
+
+**Broken setup?** Ask the agent to "set up glen" — the bundled glen-setup skill
+runs `glen doctor` and fixes whatever it reports.
 
 **Stale update lock** (if `glen update` hangs): remove the lock file and retry:
 
