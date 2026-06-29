@@ -8,6 +8,9 @@
     ],
     "Stop": [
       { "hooks": [{ "type": "command", "command": "glen ingest --agent claude-code" }] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "glen pr-link --agent claude-code" }] }
     ]
   }
 }
