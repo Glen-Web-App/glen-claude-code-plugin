@@ -86,20 +86,33 @@ On every `UserPromptSubmit` and `Stop` hook, glen sends to your glen org:
 
 - The current user prompt
 - The prior assistant turn (for continuity)
-- Workspace metadata: repo name, branch, commit hash, remote URL
-- Agent name (`claude-code`) and session details
+- On `Stop`, the finished turn: the agent's text, thinking, tool calls and tool results.
+  Tool results can include file contents and command output.
+- Workspace metadata: working directory, repo name, branch, commit hash, remote URL
+- Agent name (`claude-code`) and session details (session id, permission mode, how the
+  session started)
 
-**Nothing is recorded while incognito is on.** Recall still works: glen fetches
-relevant memories but writes nothing to team memory. Admin analytics still count your
-prompts as numbers only. Toggle with `glen incognito` / `glen on`. `glen off` injects
-and records nothing.
+After a `git commit`, the `PostToolUse` hook also sends the commit hash, remote URL,
+branch and session id.
+
+Glen masks the secrets it detects before storing a turn. Detection can miss some, so
+don't rely on it to protect a secret that ends up in a session.
+
+**Incognito** (`glen incognito`, back with `glen on`): your turns are not added to team
+memory or shown to teammates, and recall still works, so your prompts still go to Glen.
+Glen keeps a copy with detected secrets removed, which only authorized Glen staff can
+access for troubleshooting. Admin analytics count your prompts as numbers only.
+
+**Off** (`glen off`): glen sends no turns and injects nothing.
 
 The glen CLI also reports content-free error codes about itself (error code, command and flag names, CLI, OS and agent
 versions; never prompts, paths, flag values or content), incognito included. Turn this off with
 `glen telemetry disable` or `DO_NOT_TRACK=1`.
 
-Glen never sends data to any third party. All memory is stored in your org's private
-glen instance.
+Memory is kept separate per organization. To run the product, Glen sends data to service
+providers, including AI model providers and cloud hosting and search infrastructure. See
+the [sub-processors list](https://tryglen.com/sub-processors) and the
+[privacy policy](https://tryglen.com/privacy), which also covers retention.
 
 ## Updating
 
