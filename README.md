@@ -8,7 +8,8 @@ the same institutional knowledge.
 
 ## What it does
 
-The glen plugin registers these hooks, each a one-line `glen` CLI call:
+The glen plugin registers these hooks, each a single `glen` CLI call started through
+`hooks/run-glen.mjs`, which runs that call and nothing else:
 
 - **SessionStart** (`glen session-start`): injects glen's status (org, mode) as
   context, shows a notice when glen is off, incognito, or silent, and runs

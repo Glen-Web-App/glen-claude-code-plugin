@@ -1,16 +1,16 @@
 {
   "hooks": {
     "SessionStart": [
-      { "hooks": [{ "type": "command", "command": "glen session-start --agent claude-code" }] }
+      { "hooks": [{ "type": "command", "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/run-glen.mjs", "session-start", "--agent", "claude-code"] }] }
     ],
     "UserPromptSubmit": [
-      { "hooks": [{ "type": "command", "command": "glen ingest --agent claude-code" }] }
+      { "hooks": [{ "type": "command", "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/run-glen.mjs", "ingest", "--agent", "claude-code"] }] }
     ],
     "Stop": [
-      { "hooks": [{ "type": "command", "command": "glen ingest --agent claude-code" }] }
+      { "hooks": [{ "type": "command", "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/run-glen.mjs", "ingest", "--agent", "claude-code"] }] }
     ],
     "PostToolUse": [
-      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "glen pr-link --agent claude-code" }] }
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/run-glen.mjs", "pr-link", "--agent", "claude-code"] }] }
     ]
   }
 }
