@@ -105,8 +105,9 @@ access for troubleshooting. Admin analytics count your prompts as numbers only.
 
 **Off** (`glen off`): glen sends no turns and injects nothing.
 
-The glen CLI also reports content-free error codes about itself (error code, command and flag names, CLI, OS and agent
-versions; never prompts, paths, flag values or content), incognito included. Turn this off with
+The glen CLI also reports content-free error codes about itself (error code, command and flag names, agent name, CLI
+and Node versions, OS and architecture, a random install id; never prompts, paths, flag values or content), incognito
+included. Turn this off with
 `glen telemetry disable` or `DO_NOT_TRACK=1`.
 
 ## Updating
