@@ -1,8 +1,11 @@
 {
   "name": "glen",
-  "version": "0.22.18",
+  "version": "0.22.19",
   "description": "Shared team memory for coding agents: automatic recall and capture on every turn via the glen CLI.",
-  "author": { "name": "Glen", "url": "https://tryglen.com" },
+  "author": {
+    "name": "Glen",
+    "url": "https://tryglen.com"
+  },
   "homepage": "https://tryglen.com",
   "documentationUrl": "https://tryglen.com/docs/claude",
   "supportUrl": "https://tryglen.com/support",
@@ -10,5 +13,12 @@
   "termsOfServiceUrl": "https://tryglen.com/terms",
   "repository": "https://github.com/Glen-Web-App/glen-claude-code-plugin",
   "license": "MIT",
-  "keywords": ["memory", "team-memory", "agent-memory", "context", "knowledge-sharing", "collaboration"]
+  "keywords": [
+    "memory",
+    "team-memory",
+    "agent-memory",
+    "context",
+    "knowledge-sharing",
+    "collaboration"
+  ]
 }
