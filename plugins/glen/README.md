@@ -109,11 +109,6 @@ The glen CLI also reports content-free error codes about itself (error code, com
 versions; never prompts, paths, flag values or content), incognito included. Turn this off with
 `glen telemetry disable` or `DO_NOT_TRACK=1`.
 
-Memory is kept separate per organization. To run the product, Glen sends data to service
-providers, including AI model providers and cloud hosting and search infrastructure. See
-the [sub-processors list](https://tryglen.com/sub-processors) and the
-[privacy policy](https://tryglen.com/privacy), which also covers retention.
-
 ## Updating
 
 The plugin auto-updates via the Claude Code marketplace `autoUpdate` mechanism once
@@ -160,9 +155,3 @@ glen update
 **No active organization error:** run `glen org switch` to select an org, or
 `glen org list` to see your memberships. If the list itself fails with an auth error,
 run `glen login` to reconnect.
-
----
-
-> **Note:** This repository is generated from the
-> [glen monorepo](https://github.com/Glen-Web-App/glen) (`packages/claude-plugin`).
-> Please open pull requests and issues there, not here.
