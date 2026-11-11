@@ -17,9 +17,9 @@ The glen plugin registers these hooks, each a single `glen` CLI call started thr
   matching memories, and injects them as additional context for the model.
 - **Stop** (`glen ingest`): records the finished turn.
 - **PostToolUse** on Bash (`glen pr-link`): after a `git commit`, links the commit
-  to the session in glen; after `gh pr create`, has the agent offer Glen's local
-  reviewer (`glen review <n> --detach`), once per PR. `glen suggestions review off`
-  turns that offer off.
+  to the session in glen; after `gh pr create`, can have the agent offer Glen's local
+  reviewer (`glen review <n> --detach`), once per PR. That offer is off until you
+  run `glen suggestions review on`.
 
 `glen off` injects and records nothing. In incognito (`glen incognito`) recall still
 works but nothing is recorded to team memory. Glen reads only the hook input, the
